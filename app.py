@@ -3,11 +3,13 @@ from flask_cors import CORS
 import openai
 import os
 
+# Remove this line: from config import OPENAI_API_KEY
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-# Set the OpenAI API Key from environment variable
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# Correctly retrieve the environment variable
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 # working API key check
 if openai.api_key is None:
