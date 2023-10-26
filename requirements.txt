@@ -38,7 +38,7 @@ matplotlib==3.5.3
 multidict==6.0.4
 numpy==1.21.6
 openai==0.28.1
-orjson==3.9.10
+orjson==3.9.7
 packaging==23.2
 pandas==2.1.1
 Pillow==10.1.0
