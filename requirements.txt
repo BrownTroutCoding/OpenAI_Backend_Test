@@ -50,7 +50,7 @@ python-dateutil==2.8.2
 python-multipart==0.0.6
 pytz==2023.3.post1
 PyYAML==6.0.1
-referencing==0.30.2
+referencing==0.8.9
 requests==2.31.0
 rpds-py==0.10.6
 semantic-version==2.10.0
