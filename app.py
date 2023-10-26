@@ -11,6 +11,9 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 # Correctly retrieve the environment variable
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
+# Set the API key for the 'openai' library
+openai.api_key = OPENAI_API_KEY
+
 # working API key check
 if openai.api_key is None:
     raise ValueError("Missing OpenAI API key! Please set the OPENAI_API_KEY environment variable.")
