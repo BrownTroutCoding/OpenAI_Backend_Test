@@ -1,39 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/main.css">
     <!-- ... other <head> elements ... -->
     <script>
-        // This function will handle the form submission.
-        function submitForm(event) {
-            event.preventDefault();  // Prevent the default form submission.
+      // This function will handle the form submission.
+      function submitForm(event) {
+        event.preventDefault(); // Prevent the default form submission.
 
-            // Fetch the API response and update the DOM.
-            fetch('/get_response', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ user_input: document.getElementById('user_input').value }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Update the DOM with the response.
-                document.getElementById('response').innerText = data.reply || data.error;
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        }
+        // Fetch the API response and update the DOM.
+        fetch("/get_response", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_input: document.getElementById("user_input").value,
+          }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Update the DOM with the response.
+            document.getElementById("response").innerText =
+              data.reply || data.error;
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
     </script>
-</head>
-<body>
-    <form onsubmit="submitForm(event)">
-        <input type="text" id="user_input" name="user_input" required>
-        <input type="submit" value="Send">
-    </form>
-    <div id="response">
+  </head>
+  <body>
+    <div class="container">
+      <form class="form__container" onsubmit="submitForm(event)">
+        <input
+          type="text"
+          id="user_input"
+          name="user_input"
+          required />
+        <input
+          type="submit"
+          value="Send" />
+      </form>
+      <div >
+        <p id="response"></p>
         <!-- The response will be displayed here. -->
+      </div>
     </div>
-</body>
+  </body>
 </html>
