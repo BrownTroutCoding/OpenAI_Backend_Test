@@ -9,7 +9,8 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 # Correctly retrieve the environment variable
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = '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'
 
 # Set the API key for the 'openai' library
 openai.api_key = OPENAI_API_KEY
@@ -20,7 +21,7 @@ if openai.api_key is None:
 
 # This list will hold the conversation.
 # Note: In a production environment, you might want to replace this with a more robust solution for handling multiple users/sessions.
-messages = [{"role": "system", "content": "You are a software developer"}]
+messages = [{"role": "system", "content": "You are a software developer recruting professional"}]
 
 @app.route('/', methods=['GET'])
 def home():
@@ -31,7 +32,7 @@ def home():
 def get_response():
     try:
         # Get the user input from the POST request body
-        data = request.get_json()
+        # data = request.get_json()
         user_input = request.json['user_input']
         
         # Add the user's message to the conversation
